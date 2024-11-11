@@ -1,22 +1,17 @@
 package com.springframework.dependency_injection.controllers;
 
 import com.springframework.dependency_injection.services.GreetingService;
-import com.springframework.dependency_injection.services.GreetingServiceImpl;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MyController {
-
+public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
-    public MyController() {
-        this.greetingService = new GreetingServiceImpl();
+    public ConstructorInjectedController(GreetingService greetingService) {
+        this.greetingService = greetingService;
     }
 
     public String sayHello() {
-
-        System.out.println("I am the controller");
         return greetingService.sayGreeting();
     }
-
 }
