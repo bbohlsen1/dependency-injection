@@ -2,6 +2,7 @@ package com.springframework.dependency_injection.controllers;
 
 import com.springframework.dependency_injection.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
@@ -12,6 +13,7 @@ public class SetterInjectedController {
 
     //Using Autowire on the setter utilizes it correctly.
     //You cannot use Autowire on the property and expect the setter to work.
+    @Qualifier("setterGreetingBean")
     @Autowired
     public void setGreetingService(GreetingService greetingService) {
         System.out.println("SetterInjectedController.setGreetingService");
